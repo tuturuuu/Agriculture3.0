@@ -10,7 +10,7 @@ export default function NavigationBar() {
                 <a href="#" className="text-decoration-none link-dark fw-semibold fs-5">Home</a>
                 <a href="#" className="text-decoration-none link-dark fw-semibold fs-5">Stats</a>
                 <a href="#" className="text-decoration-none link-dark fw-semibold fs-5">Create</a>
-                <a href="#" className="text-decoration-none link-dark fw-semibold fs-5">About</a>
+                <a href="/about" className="text-decoration-none link-dark fw-semibold fs-5">About</a>
             </div>
 
             <div className="d-flex gap-4 align-items-center">
