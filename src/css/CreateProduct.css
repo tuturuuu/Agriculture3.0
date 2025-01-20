@@ -2,6 +2,7 @@
   border: 2px dashed #ccc;
   border-radius: 8px;
   padding: 20px;
+  transition: all 0.3s ease;
 }
 
 .form-area:hover {
