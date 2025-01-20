@@ -1,6 +1,6 @@
-import NavigationBar from "./components/NavigationBar"
-import Carousel from "./components/Carousel"
-import ProductCard from "./components/ProductCard"
+import NavigationBar from "./components/NavigationBar";
+import Carousel from "./components/Carousel";
+import ProductCard from "./components/ProductCard";
 import CategoryCard from "./components/CategoryCard";
 import Footer from "./components/Footer";
 
@@ -16,8 +16,7 @@ const mockData = [
   {
     imageSrc: "/src/assets/png/watermelon.png",
     title: "Watermelon",
-    description:
-      "Fresh and juicy watermelon, perfect for a refreshing snack.",
+    description: "Fresh and juicy watermelon, perfect for a refreshing snack.",
     price: 0.05,
     isFavourite: false,
   },
@@ -32,8 +31,7 @@ const mockData = [
   {
     imageSrc: "/src/assets/png/rice.png",
     title: "Rice",
-    description:
-      "Premium quality rice, ideal for a variety of dishes.",
+    description: "Premium quality rice, ideal for a variety of dishes.",
     price: 0.07,
     isFavourite: false,
   },
@@ -56,16 +54,14 @@ const mockData = [
   {
     imageSrc: "/src/assets/png/Cong Coffee.png",
     title: "Cong Coffee",
-    description:
-      "Enjoy the rich and aromatic blend of Cong coffee.",
-    price: 0.10,
+    description: "Enjoy the rich and aromatic blend of Cong coffee.",
+    price: 0.1,
     isFavourite: true,
   },
   {
     imageSrc: "/src/assets/png/rice ST25.png",
     title: "ST25 Rice",
-    description:
-      "Award-winning ST25 rice, known for its fragrance and taste.",
+    description: "Award-winning ST25 rice, known for its fragrance and taste.",
     price: 0.09,
     isFavourite: false,
   },
@@ -107,37 +103,68 @@ const mockCategory = [
 ];
 
 function App() {
-
   return (
     <>
       <NavigationBar />
 
       {/* Hero Section */}
       <div className="position-relative">
-        <img src="src\assets\png\background.png" alt="" width="100%" height="575px" style={{objectFit: 'cover'}}/>
-        <span style={{top: '50%', left: '50%', position: 'absolute', transform: 'translate(-50%, -50%)', textAlign: 'center', fontSize: '3rem'}} className="fw-semibold" >
+        <img
+          src="src\assets\png\background.png"
+          alt=""
+          width="100%"
+          height="575px"
+          style={{ objectFit: "cover" }}
+        />
+        <span
+          style={{
+            top: "50%",
+            left: "50%",
+            position: "absolute",
+            transform: "translate(-50%, -50%)",
+            textAlign: "center",
+            fontSize: "3rem",
+          }}
+          className="fw-semibold"
+        >
           Algriculture Blockchain Trading Platform <br />
-          <button style={{width:'55%', marginTop: '3%', borderRadius:'30px'}} className="btn btn-lg btn-dark fs-4 fw-semibold" type="button">
+          <button
+            style={{ width: "55%", marginTop: "3%", borderRadius: "30px" }}
+            className="btn btn-lg btn-dark fs-4 fw-semibold"
+            type="button"
+          >
             Get started
           </button>
         </span>
       </div>
 
-        {/* Popular Section */}
-        <section className="p-5 mt-5" >
-          <h1 className="fs-2 fw-bold mb-5" style={{marginLeft: '12%'}}>Popular products🔥</h1>
-          <Carousel mockData={mockData} CardComponent={ProductCard} carouselId="productCarousel"/>
-        </section>
+      {/* Popular Section */}
+      <section className="p-5 mt-5">
+        <h1 className="fs-2 fw-bold mb-5" style={{ marginLeft: "12%" }}>
+          Popular products🔥
+        </h1>
+        <Carousel
+          mockData={mockData}
+          CardComponent={ProductCard}
+          carouselId="productCarousel"
+        />
+      </section>
 
-        {/* Browse categories */}
-        <section className="p-5 mt-5" style={{height: '50vh'}}>
-          <h1 className="fs-2 fw-bold mb-5"  style={{marginLeft: '12%'}}>Browse categories 📖</h1>
-          <Carousel mockData={mockCategory} CardComponent={CategoryCard} carouselId="categoryCarousel"/>
-        </section>
+      {/* Browse categories */}
+      <section className="p-5 mt-5" style={{ height: "50vh" }}>
+        <h1 className="fs-2 fw-bold mb-5" style={{ marginLeft: "12%" }}>
+          Browse categories 📖
+        </h1>
+        <Carousel
+          mockData={mockCategory}
+          CardComponent={CategoryCard}
+          carouselId="categoryCarousel"
+        />
+      </section>
 
-        <Footer />
+      <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -16,13 +16,13 @@ export default function NavigationBar() {
           Home
         </a>
         <a
-          href="/Stats"
+          href="/stats"
           className="text-decoration-none link-dark fw-semibold fs-6 nav-link"
         >
           Stats
         </a>
         <a
-          href="#"
+          href="/create"
           className="text-decoration-none link-dark fw-semibold fs-6 nav-link"
         >
           Create

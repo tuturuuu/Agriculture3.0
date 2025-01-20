@@ -41,7 +41,7 @@ function Footer() {
               <ul className="list-unstyled">
                 {section.items.map((item, index) => (
                   <li key={index} className="mb-2">
-                    <a href="#" className="text-decoration-none text-dark">
+                    <a href="#" className="footer-link">
                       {item}
                     </a>
                   </li>
@@ -72,7 +72,7 @@ function Footer() {
             <ul className="list-inline mb-0">
               {legalLinks.map((link, index) => (
                 <li className="list-inline-item me-3" key={index}>
-                  <a href="#" className="text-decoration-none text-dark">
+                  <a href="#" className="footer-link">
                     {link}
                   </a>
                 </li>
@@ -85,7 +85,7 @@ function Footer() {
             <ul className="list-inline mb-0 text-end">
               {socialLinks.map((social, index) => (
                 <li className="list-inline-item" key={index}>
-                  <a href="#" className="text-dark mx-2">
+                  <a href="#" className="footer-link mx-2">
                     <i className={`fab ${social.icon}`}></i>
                   </a>
                 </li>

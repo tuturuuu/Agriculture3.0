@@ -2,15 +2,15 @@ import "./css/HarvestTable.css"; // We'll create this CSS file next
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import NavigationBar from "./components/NavigationBar";
 import SearchIcon from "@mui/icons-material/Search";
-import Pagination from '@mui/material/Pagination';
-import Stack from '@mui/material/Stack';
+import Pagination from "@mui/material/Pagination";
+import Stack from "@mui/material/Stack";
 import Footer from "./components/Footer";
 
 const Stats = () => {
   const harvests = [
     {
       name: "Golden Grain",
-      image: "/placeholder-image.jpg",
+      image: "src/assets/mockProductsTable/Simple01.png",
       price: "0.08 ETH",
       status: "Fresh",
       batchNumber: "9177",
@@ -19,7 +19,7 @@ const Stats = () => {
     },
     {
       name: "Mekong Pearl",
-      image: "/placeholder-image.jpg",
+      image: "src/assets/mockProductsTable/Simple02.png",
       price: "0.18 ETH",
       status: "Expired",
       batchNumber: "3064",
@@ -28,7 +28,7 @@ const Stats = () => {
     },
     {
       name: "Harvest Fresh Rice",
-      image: "/placeholder-image.jpg",
+      image: "src/assets/mockProductsTable/Simple03.png",
       price: "0.03 ETH",
       status: "Pending",
       batchNumber: "9195",
@@ -37,7 +37,7 @@ const Stats = () => {
     },
     {
       name: "Highland Brew",
-      image: "/placeholder-image.jpg",
+      image: "src/assets/mockProductsTable/Simple04.png",
       price: "0.05 ETH",
       status: "Expired",
       batchNumber: "3128",
@@ -46,7 +46,7 @@ const Stats = () => {
     },
     {
       name: "Robusta Reserve",
-      image: "/placeholder-image.jpg",
+      image: "src/assets/mockProductsTable/Simple05.png",
       price: "0.09 ETH",
       status: "Pending",
       batchNumber: "9892",
@@ -55,7 +55,7 @@ const Stats = () => {
     },
     {
       name: "Green Label Harvest",
-      image: "/placeholder-image.jpg",
+      image: "src/assets/mockProductsTable/Simple06.png",
       price: "0.21 ETH",
       status: "Expired",
       batchNumber: "9011",
@@ -67,7 +67,7 @@ const Stats = () => {
   return (
     <>
       <NavigationBar />
-      <section className="p-5">
+      <section className="p-5" style={{ marginBottom: "100px" }}>
         <h1 className="fs-3 fw-bold mt-5 mb-3">Agriculture stats</h1>
         {/* Header Section */}
         <div className="d-flex justify-content-between align-items-center mb-4">
@@ -84,11 +84,23 @@ const Stats = () => {
               >
                 All categories
               </button>
-                <ul className="dropdown-menu">
-                    <li><a className="dropdown-item" href="#">Action</a></li>
-                    <li><a className="dropdown-item" href="#">Another action</a></li>
-                    <li><a className="dropdown-item" href="#">Something else here</a></li>
-                </ul>
+              <ul className="dropdown-menu">
+                <li>
+                  <a className="dropdown-item" href="#">
+                    Action
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    Another action
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="#">
+                    Something else here
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
           <div className="search-container">
@@ -159,21 +171,22 @@ const Stats = () => {
 
         {/* Pagination */}
         <div className="d-flex justify-content-between">
-          <Stack spacing={2}>
-            <Pagination count={10} variant="outlined" shape="rounded"/>
+          <Stack spacing={1}>
+            <Pagination count={10} shape="rounded" color="primary" />
           </Stack>
-          <div className="d-flex gap-3">
+          <div className="d-flex gap-3 align-items-center">
             <span>Rows per page</span>
             <select aria-label="Small select example">
-              <option selected value="10">10</option>
+              <option selected value="10">
+                10
+              </option>
               <option value="20">20</option>
               <option value="30">30</option>
             </select>
           </div>
         </div>
-
       </section>
-      
+
       <Footer />
     </>
   );

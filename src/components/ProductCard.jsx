@@ -62,9 +62,9 @@ export default function CustomCard(props) {
           {props.description}
         </Typography>
 
-        <div className="d-flex align-items-center mt-1">
+        <div className="d-flex align-items-center gap-2 justify-content-start mt-2">
           <img src="/src/assets/svg/eth.svg" alt="" width={"35"} />
-          <Typography variant="body2" className="fw-medium">
+          <Typography variant="body2" className="fw-medium pt-1">
             {props.price} ETH
           </Typography>
         </div>
