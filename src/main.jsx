@@ -10,9 +10,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import { createMuiTheme, ThemeProvider } from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material";
+import Profile from "./Profile.jsx";
 
-const theme = createMuiTheme({
+const theme = createTheme({
   palette: {
     primary: {
       main: "#000000",
@@ -32,6 +33,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="about" element={<About />} />
           <Route path="stats" element={<Stats />} />
           <Route path="create" element={<Create />} />
+          <Route path="user-profile" element={<Profile />} />
         </Routes>
       </ThemeProvider>
     </StrictMode>

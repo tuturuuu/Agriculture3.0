@@ -1,68 +1,100 @@
-import "./css/HarvestTable.css"; // We'll create this CSS file next
+import "./css/HarvestTable.css";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import NavigationBar from "./components/NavigationBar";
 import SearchIcon from "@mui/icons-material/Search";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import Footer from "./components/Footer";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  TableSortLabel,
+  Paper
+} from '@mui/material';
+import { useState } from 'react';
 
 const Stats = () => {
-  const harvests = [
-    {
-      name: "Golden Grain",
-      image: "src/assets/mockProductsTable/Simple01.png",
-      price: "0.08 ETH",
-      status: "Fresh",
-      batchNumber: "9177",
-      harvestDate: "$452.85",
-      expirationDate: "$452.85",
-    },
-    {
-      name: "Mekong Pearl",
-      image: "src/assets/mockProductsTable/Simple02.png",
-      price: "0.18 ETH",
-      status: "Expired",
-      batchNumber: "3064",
-      harvestDate: "$901.31",
-      expirationDate: "$901.31",
-    },
-    {
-      name: "Harvest Fresh Rice",
-      image: "src/assets/mockProductsTable/Simple03.png",
-      price: "0.03 ETH",
-      status: "Pending",
-      batchNumber: "9195",
-      harvestDate: "$641.20",
-      expirationDate: "$641.20",
-    },
-    {
-      name: "Highland Brew",
-      image: "src/assets/mockProductsTable/Simple04.png",
-      price: "0.05 ETH",
-      status: "Expired",
-      batchNumber: "3128",
-      harvestDate: "$510.30",
-      expirationDate: "$510.30",
-    },
-    {
-      name: "Robusta Reserve",
-      image: "src/assets/mockProductsTable/Simple05.png",
-      price: "0.09 ETH",
-      status: "Pending",
-      batchNumber: "9892",
-      harvestDate: "$828.90",
-      expirationDate: "$828.90",
-    },
-    {
-      name: "Green Label Harvest",
-      image: "src/assets/mockProductsTable/Simple06.png",
-      price: "0.21 ETH",
-      status: "Expired",
-      batchNumber: "9011",
-      harvestDate: "$845.59",
-      expirationDate: "$845.59",
-    },
+  const [order, setOrder] = useState('asc');
+  const [orderBy, setOrderBy] = useState('price');
+  
+  const initialHarvests = [
+      {
+        name: "Golden Grain",
+        image: "src/assets/mockProductsTable/Simple01.png",
+        price: "0.08",
+        status: "Fresh",
+        batchNumber: "9177",
+        harvestDate: "2023-11-01",
+        expirationDate: "2024-04-01",
+      },
+      {
+        name: "Mekong Pearl",
+        image: "src/assets/mockProductsTable/Simple02.png",
+        price: "0.18",
+        status: "Expired",
+        batchNumber: "3064",
+        harvestDate: "2023-05-15",
+        expirationDate: "2023-10-15",
+      },
+      {
+        name: "Harvest Fresh Rice",
+        image: "src/assets/mockProductsTable/Simple03.png",
+        price: "0.03",
+        status: "Pending",
+        batchNumber: "9195",
+        harvestDate: "2023-09-10",
+        expirationDate: "2024-02-10",
+      },
+      {
+        name: "Highland Brew",
+        image: "src/assets/mockProductsTable/Simple04.png",
+        price: "0.05",
+        status: "Expired",
+        batchNumber: "3128",
+        harvestDate: "2023-02-20",
+        expirationDate: "2023-07-20",
+      },
+      {
+        name: "Robusta Reserve",
+        image: "src/assets/mockProductsTable/Simple05.png",
+        price: "0.09",
+        status: "Pending",
+        batchNumber: "9892",
+        harvestDate: "2023-10-01",
+        expirationDate: "2024-03-01",
+      },
+      {
+        name: "Green Label Harvest",
+        image: "src/assets/mockProductsTable/Simple06.png",
+        price: "0.21",
+        status: "Expired",
+        batchNumber: "9011",
+        harvestDate: "2023-03-05",
+        expirationDate: "2023-08-05",
+      },
   ];
+
+  
+  const [harvests, setHarvests] = useState(initialHarvests);
+
+  const handleSortRequest = (property) => {
+    const isAsc = orderBy === property && order === 'asc';
+    setOrder(isAsc ? 'desc' : 'asc');
+    setOrderBy(property);
+
+    const sortedHarvests = [...harvests].sort((a, b) => {
+      // Simple numeric comparison for price
+      return isAsc 
+        ? Number(a.price) - Number(b.price)
+        : Number(b.price) - Number(a.price);
+    });
+
+    setHarvests(sortedHarvests);
+  };
 
   return (
     <>
@@ -85,21 +117,9 @@ const Stats = () => {
                 All categories
               </button>
               <ul className="dropdown-menu">
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Action
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Another action
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="#">
-                    Something else here
-                  </a>
-                </li>
+                <li><a className="dropdown-item" href="#">Action</a></li>
+                <li><a className="dropdown-item" href="#">Another action</a></li>
+                <li><a className="dropdown-item" href="#">Something else here</a></li>
               </ul>
             </div>
           </div>
@@ -121,23 +141,31 @@ const Stats = () => {
         </div>
 
         {/* Table */}
-        <div className="table-responsive">
-          <table className="table">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Current status</th>
-                <th>Batch number</th>
-                <th>Harvest date</th>
-                <th>Expiration date</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
+        <TableContainer component={Paper} className="table-responsive">
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell>Name</TableCell>
+                <TableCell>
+                  <TableSortLabel
+                    active={orderBy === 'price'}
+                    direction={orderBy === 'price' ? order : 'asc'}
+                    onClick={() => handleSortRequest('price')}
+                  >
+                    Price
+                  </TableSortLabel>
+                </TableCell>
+                <TableCell>Current status</TableCell>
+                <TableCell>Batch number</TableCell>
+                <TableCell>Harvest date</TableCell>
+                <TableCell>Expiration date</TableCell>
+                <TableCell>Action</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
               {harvests.map((item, index) => (
-                <tr key={index}>
-                  <td>
+                <TableRow key={index}>
+                  <TableCell>
                     <div className="d-flex align-items-center gap-2">
                       <img
                         src={item.image}
@@ -146,40 +174,36 @@ const Stats = () => {
                       />
                       <span className="fw-medium">{item.name}</span>
                     </div>
-                  </td>
-                  <td>{item.price}</td>
-                  <td>
-                    <span
-                      className={`status-badge status-${item.status.toLowerCase()}`}
-                    >
+                  </TableCell>
+                  <TableCell>{item.price} ETH</TableCell>
+                  <TableCell>
+                    <span className={`status-badge status-${item.status.toLowerCase()}`}>
                       {item.status}
                     </span>
-                  </td>
-                  <td>{item.batchNumber}</td>
-                  <td>{item.harvestDate}</td>
-                  <td>{item.expirationDate}</td>
-                  <td>
+                  </TableCell>
+                  <TableCell>{item.batchNumber}</TableCell>
+                  <TableCell>{item.harvestDate}</TableCell>
+                  <TableCell>{item.expirationDate}</TableCell>
+                  <TableCell>
                     <button className="btn btn-link p-0">
                       <MoreHorizIcon sx={{ color: "black" }} />
                     </button>
-                  </td>
-                </tr>
+                  </TableCell>
+                </TableRow>
               ))}
-            </tbody>
-          </table>
-        </div>
+            </TableBody>
+          </Table>
+        </TableContainer>
 
         {/* Pagination */}
-        <div className="d-flex justify-content-between">
+        <div className="d-flex justify-content-between mt-3">
           <Stack spacing={1}>
             <Pagination count={10} shape="rounded" color="primary" />
           </Stack>
           <div className="d-flex gap-3 align-items-center">
             <span>Rows per page</span>
             <select aria-label="Small select example">
-              <option selected value="10">
-                10
-              </option>
+              <option selected value="10">10</option>
               <option value="20">20</option>
               <option value="30">30</option>
             </select>
