@@ -1,0 +1,137 @@
+/* Import Bootstrap CSS */
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Manrope:wght@200..800&family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Manrope:wght@200..800&family=Press+Start+2P&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+nav {
+  font-family: "DM Sans";
+}
+
+body {
+  font-family: "Manrope";
+}
+
+.nav-link:hover {
+  opacity: 0.7;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  opacity: 0.8;
+  background-color: #000;
+}
+
+.carousel-item {
+  transition: transform 0.6s ease-in-out;
+}
+
+.footer-link {
+  color: #000;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.footer-link:hover {
+  opacity: 0.7;
+}
+
+/* Hover animation */
+.social-icons a {
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.custom-card {
+  position: relative;
+  transition:
+    transform 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  will-change: transform;
+}
+.custom-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-media {
+  transition: transform 0.3s ease-in-out;
+}
+
+.custom-card:hover .card-media {
+  transform: scale(1.05);
+}
+
+.favorite-button {
+  transition: transform 0.2s ease;
+}
+
+.favorite-button:hover {
+  transform: scale(1.1);
+}
+
+.card-content {
+  transition: background-color 0.3s ease;
+}
+
+.custom-card:hover .card-content {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+.card-actions {
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.custom-card:hover .card-actions {
+  opacity: 1;
+}
+
+/* Arrow hover :) */
+#prevArrow {
+  position: absolute;
+  left: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#prevArrow a {
+  cursor: pointer;
+  display: block; /* Important to make the <a> tag take full space */
+  transition: transform 0.3s ease-in-out;
+}
+
+#prevArrow a:hover {
+  transform: translateX(-10px); /* Using pixels for more precise movement */
+}
+
+#nextArrow {
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#nextArrow a {
+  cursor: pointer;
+  display: block; /* Important to make the <a> tag take full space */
+  transition: transform 0.3s ease-in-out;
+}
+
+#nextArrow a:hover {
+  transform: translateX(10px); /* Using pixels for more precise movement */
+}
