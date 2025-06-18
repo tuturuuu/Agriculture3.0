@@ -15,12 +15,11 @@ A decentralized agriculture supply chain and marketplace platform leveraging Web
 ## 🛠️ How to Run
 
 1. Rename the `contractsLegacy` folder to `contracts`.  
-   > ⚠️ The existing `contracts` folder is outdated and not supported.
+   > ⚠️ The existing `contracts` folder contains improved contracts but is not yet integrated with the frontend.
 
 2. **On Windows**:  
    Run the setup script:  
    setup.bat
-
 
 3. **On macOS/Linux**:
    Manually run the commands from `setup.bat` in your terminal.
