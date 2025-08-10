@@ -1,7 +1,6 @@
 # 🌾 Agriculture 3.0
 A decentralized agriculture supply chain and marketplace platform leveraging Web3.0 technologies.
-[![Watch the video](https://img.youtube.com/vi/FrHlcGUWuXs/maxresdefault.jpg)](https://youtu.be/FrHlcGUWuXs)
-
+[Watch on YouTube](https://youtu.be/FrHlcGUWuXs)
 
 ## 🚀 Tech Stack
 
